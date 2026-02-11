@@ -9,7 +9,51 @@ import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
-import {useLatestRelease} from '@site/src/hooks/useReleases';
+import {useReleases, useLatestRelease} from '@site/src/hooks/useReleases';
+
+function Contributors(): ReactNode {
+  const data = useReleases();
+  const contributors = data?.contributors || [];
+
+  if (contributors.length === 0) return null;
+
+  return (
+    <section className={styles.contributors}>
+      <div className="container">
+        <Heading as="h2" className={styles.sectionTitle}>
+          Built by the Community
+        </Heading>
+        <p className={styles.sectionSubtitle}>
+          Thanks to these amazing people for making BandMate possible.
+        </p>
+        <div className={styles.contributorGrid}>
+          {contributors.map((contributor) => (
+            <a
+              key={contributor.login}
+              href={contributor.html_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.contributorCard}
+              title={`${contributor.login}: ${contributor.contributions} contributions`}
+            >
+              <img
+                src={contributor.avatar_url}
+                alt={contributor.login}
+                className={styles.contributorAvatar}
+              />
+              <div className={styles.contributorInfo}>
+                <span className={styles.contributorName}>{contributor.login}</span>
+                <span className={styles.contributorCount}>
+                  {contributor.contributions} commits
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function HomepageHero(): ReactNode {
   const {siteConfig} = useDocusaurusContext();
@@ -455,6 +499,7 @@ export default function Home(): ReactNode {
       <main>
         <HomepageFeatures />
         <Screenshots />
+        <Contributors />
         <QuickStart />
       </main>
     </Layout>

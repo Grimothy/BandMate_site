@@ -10,9 +10,17 @@ interface ReleaseInfo {
   notes: string;
 }
 
+interface Contributor {
+  login: string;
+  avatar_url: string;
+  html_url: string;
+  contributions: number;
+}
+
 interface ReleasesData {
   latest: ReleaseInfo;
   allReleases: ReleaseInfo[];
+  contributors: Contributor[];
 }
 
 export function useReleases(): ReleasesData | null {

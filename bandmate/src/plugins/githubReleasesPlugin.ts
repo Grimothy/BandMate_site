@@ -31,6 +31,12 @@ interface ReleaseData {
     url: string;
     notes: string;
   }>;
+  contributors: Array<{
+    login: string;
+    avatar_url: string;
+    html_url: string;
+    contributions: number;
+  }>;
 }
 
 export default function githubReleasesPlugin(): Plugin {
@@ -41,22 +47,40 @@ export default function githubReleasesPlugin(): Plugin {
       try {
         // Fetch releases from GitHub API
         console.log('[github-releases] Fetching releases from GitHub API...');
-        const response = await fetch('https://api.github.com/repos/Grimothy/BandMate/releases', {
+        const releaseRes = await fetch('https://api.github.com/repos/Grimothy/BandMate/releases', {
           headers: {
             'Accept': 'application/vnd.github.v3+json',
             'User-Agent': 'Docusaurus-Plugin'
           }
         });
 
-        console.log(`[github-releases] API response status: ${response.status}`);
+        // Fetch contributors from GitHub API
+        console.log('[github-releases] Fetching contributors from GitHub API...');
+        const contributorsRes = await fetch('https://api.github.com/repos/Grimothy/BandMate/contributors', {
+          headers: {
+            'Accept': 'application/vnd.github.v3+json',
+            'User-Agent': 'Docusaurus-Plugin'
+          }
+        });
 
-        if (!response.ok) {
-          console.warn(`[github-releases] Could not fetch GitHub releases (status ${response.status}), using fallback`);
+        console.log(`[github-releases] Releases response status: ${releaseRes.status}`);
+        console.log(`[github-releases] Contributors response status: ${contributorsRes.status}`);
+
+        if (!releaseRes.ok || !contributorsRes.ok) {
+          console.warn('[github-releases] Could not fetch data, using fallback');
           return getFallbackData();
         }
 
-        const releases: GitHubRelease[] = await response.json();
-        console.log(`[github-releases] Found ${releases.length} releases`);
+        const releases: GitHubRelease[] = await releaseRes.json();
+        const contributorsData = await contributorsRes.json();
+        
+        // Filter out bots and non-human contributors
+        const excludedLogins = ['copilot', 'actions-user', 'github-actions[bot]', 'github-actions'];
+        const filteredContributors = Array.isArray(contributorsData) 
+          ? contributorsData.filter((c: any) => !excludedLogins.includes(c.login.toLowerCase()))
+          : [];
+
+        console.log(`[github-releases] Found ${releases.length} releases, ${filteredContributors.length} contributors (filtered from ${contributorsData.length})`);
 
         if (releases.length === 0) {
           console.warn('[github-releases] No releases found, using fallback');
@@ -98,10 +122,16 @@ export default function githubReleasesPlugin(): Plugin {
             }),
             url: r.html_url,
             notes: r.body
+          })),
+          contributors: filteredContributors.map((c: any) => ({
+            login: c.login,
+            avatar_url: c.avatar_url,
+            html_url: c.html_url,
+            contributions: c.contributions
           }))
         };
       } catch (error) {
-        console.warn('Failed to fetch GitHub releases:', error);
+        console.warn('Failed to fetch GitHub releases or contributors:', error);
         return getFallbackData();
       }
     },
@@ -114,7 +144,7 @@ export default function githubReleasesPlugin(): Plugin {
   };
 }
 
-function getFallbackData() {
+function getFallbackData(): ReleaseData {
   console.log('[github-releases] Using fallback data for v1.4.1');
   return {
     latest: {
@@ -126,6 +156,14 @@ function getFallbackData() {
       url: 'https://github.com/Grimothy/BandMate/releases/tag/v1.4.1',
       notes: ''
     },
-    allReleases: []
+    allReleases: [],
+    contributors: [
+      {
+        login: 'Grimothy',
+        avatar_url: 'https://github.com/Grimothy.png',
+        html_url: 'https://github.com/Grimothy',
+        contributions: 1
+      }
+    ]
   };
 }

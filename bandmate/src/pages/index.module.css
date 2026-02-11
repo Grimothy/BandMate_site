@@ -787,6 +787,70 @@
   margin-top: 2rem;
 }
 
+/* ===== Contributors Section ===== */
+.contributors {
+  background: #0f172a;
+  padding: 5rem 2rem;
+  border-top: 1px solid #1e293b;
+}
+
+.contributorGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contributorCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #1e293b;
+  border: 1px solid #334155;
+  padding: 0.75rem 1.25rem;
+  border-radius: 9999px;
+  text-decoration: none !important;
+  transition: all 0.2s ease-in-out;
+  min-width: 200px;
+}
+
+.contributorCard:hover {
+  border-color: #22c55e;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(34, 197, 94, 0.1);
+  background: #1e293b;
+}
+
+.contributorAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid #334155;
+  transition: border-color 0.2s;
+}
+
+.contributorCard:hover .contributorAvatar {
+  border-color: #22c55e;
+}
+
+.contributorInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.contributorName {
+  color: #f8fafc;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.contributorCount {
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
 /* ===== Responsive ===== */
 @media screen and (max-width: 996px) {
   .heroInner {
