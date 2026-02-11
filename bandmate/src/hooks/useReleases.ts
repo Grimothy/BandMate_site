@@ -17,9 +17,10 @@ interface ReleasesData {
 
 export function useReleases(): ReleasesData | null {
   const globalData = useGlobalData();
-  const pluginData = globalData['github-releases'] as { releases: ReleasesData } | undefined;
+  // Docusaurus wraps plugin data in { default: { releases: ... } }
+  const pluginData = globalData['github-releases'] as { default?: { releases?: ReleasesData } } | undefined;
   
-  return pluginData?.releases ?? null;
+  return pluginData?.default?.releases ?? null;
 }
 
 export function useLatestRelease(): ReleaseInfo | null {
