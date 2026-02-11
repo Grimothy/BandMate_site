@@ -129,48 +129,55 @@ function HomepageHero(): ReactNode {
 }
 
 function Screenshots(): ReactNode {
+  const {siteConfig} = useDocusaurusContext();
+  const baseUrl = siteConfig.baseUrl;
+
   const screenshots = [
     {
-      img: '/img/screenshots/bandmate-dashboard.png',
+      img: 'img/screenshots/bandmate-dashboard.png',
       title: 'Dashboard Overview',
       description: 'See all your projects, recent activity, and notifications at a glance. Stay updated with real-time collaboration updates.'
     },
     {
-      img: '/img/screenshots/bandmate-projects.png',
+      img: 'img/screenshots/bandmate-projects.png',
       title: 'Projects Dashboard',
       description: 'Organize all your band\'s projects in one place. Create, manage, and navigate between multiple projects effortlessly.'
     },
     {
-      img: '/img/screenshots/bandmate-vibes.png',
+      img: 'img/screenshots/bandmate-vibes.png',
       title: 'Project Vibes',
       description: 'Break down your projects into "vibes" - collections of related tracks. Perfect for organizing different versions, moods, or song ideas.'
     },
     {
-      img: '/img/screenshots/bandmate-cut.png',
+      img: 'img/screenshots/bandmate-cut.png',
       title: 'Audio Playback & Comments',
       description: 'Listen to tracks with visual waveforms. Leave timestamped comments that link directly to specific moments in the song.'
     },
     {
-      img: '/img/screenshots/bandmate-explorer.png',
+      img: 'img/screenshots/bandmate-explorer.png',
       title: 'File Explorer',
       description: 'Browse and manage all your audio files and stems. Upload, organize, and share files with your bandmates securely.'
     },
     {
-      img: '/img/screenshots/bandmate-users.png',
+      img: 'img/screenshots/bandmate-users.png',
       title: 'User Management',
       description: 'Invite bandmates, manage permissions, and control who has access to your projects. Simple and secure collaboration.'
     },
     {
-      img: '/img/screenshots/bandmate-mobile.png',
+      img: 'img/screenshots/bandmate-mobile.png',
       title: 'Mobile Ready',
       description: 'Full mobile support means you can review tracks and leave feedback from anywhere, on any device.'
     },
     {
-      img: '/img/screenshots/bandmate-actions.png',
+      img: 'img/screenshots/bandmate-actions.png',
       title: 'Touch-Friendly Actions',
       description: 'Context menus optimized for both mobile and desktop. Quick actions are always just a tap or click away.'
     }
   ];
+
+  // Helper to get correct asset URL without using hooks in loops
+  const getAssetUrl = (path: string) => `${baseUrl}${path}`.replace(/\/+/g, '/');
+
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
@@ -264,7 +271,7 @@ function Screenshots(): ReactNode {
                 }}>
                 <div className={styles.screenshotImageWrapper}>
                   <img 
-                    src={useBaseUrl(screenshot.img)}
+                    src={getAssetUrl(screenshot.img)}
                     alt={screenshot.title}
                     className={styles.screenshotImage}
                   />
@@ -302,7 +309,7 @@ function Screenshots(): ReactNode {
 
             <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
               <img 
-                src={useBaseUrl(screenshots[lightboxIndex].img)}
+                src={getAssetUrl(screenshots[lightboxIndex].img)}
                 alt={screenshots[lightboxIndex].title}
                 className={styles.lightboxImage}
               />
@@ -358,7 +365,7 @@ function Screenshots(): ReactNode {
                 }
               }}>
               <img 
-                src={useBaseUrl(screenshots[currentIndex].img)}
+                src={getAssetUrl(screenshots[currentIndex].img)}
                 alt={screenshots[currentIndex].title}
                 className={styles.carouselImage}
               />
@@ -423,7 +430,7 @@ function Screenshots(): ReactNode {
 
           <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
             <img 
-              src={useBaseUrl(screenshots[lightboxIndex].img)}
+              src={getAssetUrl(screenshots[lightboxIndex].img)}
               alt={screenshots[lightboxIndex].title}
               className={styles.lightboxImage}
             />
