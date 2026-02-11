@@ -30,8 +30,8 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl:
-            'https://github.com/Grimothy/BandMate_site/tree/main/bandmate/',
+           // editUrl removed to hide 'Edit this page'
+          
         },
         blog: false,
         theme: {
