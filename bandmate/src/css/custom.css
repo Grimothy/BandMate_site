@@ -1,0 +1,299 @@
+/**
+ * BandMate Theme - Matching the main application
+ * Dark theme with green accents (#22c55e)
+ */
+
+/* Import Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Base theme variables - Light Theme (default) */
+:root {
+  /* Primary - BandMate Green */
+  --ifm-color-primary: #22c55e;
+  --ifm-color-primary-dark: #16a34a;
+  --ifm-color-primary-darker: #15803d;
+  --ifm-color-primary-darkest: #166534;
+  --ifm-color-primary-light: #4ade80;
+  --ifm-color-primary-lighter: #86efac;
+  --ifm-color-primary-lightest: #bbf7d0;
+  
+  /* Background - Light */
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #f1f5f9;
+  
+  /* Text */
+  --ifm-font-color-base: #1e293b;
+  --ifm-font-color-secondary: #64748b;
+  --ifm-font-color-base-inverse: #ffffff;
+  
+  /* Borders */
+  --ifm-border-color: #e2e8f0;
+  
+  /* Code */
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(34, 197, 94, 0.15);
+  
+  /* Font */
+  --ifm-font-family-base: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ifm-font-family-monospace: 'Fira Code', 'Monaco', 'Consolas', monospace;
+  
+  /* Radius */
+  --ifm-global-radius: 0.5rem;
+  
+  /* Links */
+  --ifm-link-color: #22c55e;
+  --ifm-link-hover-color: #16a34a;
+  
+  /* Navbar */
+  --ifm-navbar-background-color: #ffffff;
+  --ifm-navbar-link-color: #1e293b;
+  --ifm-navbar-link-hover-color: #22c55e;
+  
+  /* Footer */
+  --ifm-footer-background-color: #f8fafc;
+  
+  /* Cards */
+  --ifm-card-background-color: #ffffff;
+  
+  /* Buttons */
+  --ifm-button-background-color: #22c55e;
+  --ifm-button-color: #ffffff;
+}
+
+/* Dark mode - Same as light since BandMate is dark-themed */
+[data-theme='dark'] {
+  --ifm-color-primary: #22c55e;
+  --ifm-color-primary-dark: #16a34a;
+  --ifm-color-primary-darker: #15803d;
+  --ifm-color-primary-darkest: #166534;
+  --ifm-color-primary-light: #4ade80;
+  --ifm-color-primary-lighter: #86efac;
+  --ifm-color-primary-lightest: #bbf7d0;
+  
+  --ifm-background-color: #0f172a;
+  --ifm-background-surface-color: #1e293b;
+  
+  --ifm-font-color-base: #f8fafc;
+  --ifm-font-color-secondary: #94a3b8;
+  
+  --ifm-border-color: #334155;
+  
+  --ifm-navbar-background-color: #1e293b;
+  --ifm-navbar-link-color: #f8fafc;
+  --ifm-navbar-link-hover-color: #22c55e;
+  --ifm-footer-background-color: #0f172a;
+  --ifm-card-background-color: #1e293b;
+  
+  --docusaurus-highlighted-code-line-bg: rgba(34, 197, 94, 0.15);
+}
+
+/* Custom Scrollbar - Light theme default */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ifm-background-surface-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ifm-border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ifm-color-emphasis-400);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ifm-border-color) var(--ifm-background-surface-color);
+}
+
+/* Hero Section */
+.hero--primary {
+  background: linear-gradient(135deg, var(--ifm-background-color) 0%, var(--ifm-background-surface-color) 100%);
+  color: var(--ifm-font-color-base);
+}
+
+.hero__title {
+  color: var(--ifm-font-color-base);
+}
+
+.hero__subtitle {
+  color: var(--ifm-font-color-secondary);
+}
+
+/* Buttons */
+.button--secondary {
+  background-color: var(--ifm-color-primary);
+  color: var(--ifm-button-color);
+  border: none;
+}
+
+.button--secondary:hover {
+  background-color: var(--ifm-color-primary-dark);
+  color: var(--ifm-button-color);
+}
+
+/* Navigation */
+.navbar {
+  border-bottom: 1px solid var(--ifm-border-color);
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: var(--ifm-color-primary);
+}
+
+.navbar__brand:hover {
+  color: var(--ifm-color-primary);
+}
+
+/* Sidebar */
+.theme-doc-sidebar-container {
+  background-color: var(--ifm-background-color);
+}
+
+.menu__link:hover,
+.menu__link--active {
+  color: var(--ifm-color-primary);
+}
+
+.menu__link--active {
+  background-color: rgba(34, 197, 94, 0.1);
+}
+
+/* Footer */
+.footer {
+  border-top: 1px solid var(--ifm-border-color);
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-color-primary);
+}
+
+/* Cards and content */
+.theme-doc-markdown {
+  color: var(--ifm-font-color-base);
+}
+
+.theme-doc-markdown h1,
+.theme-doc-markdown h2,
+.theme-doc-markdown h3,
+.theme-doc-markdown h4,
+.theme-doc-markdown h5,
+.theme-doc-markdown h6 {
+  color: var(--ifm-font-color-base);
+}
+
+/* Code blocks - ALWAYS dark mode, never changes with theme toggle */
+.theme-code-block,
+.theme-code-block pre,
+.theme-code-block code,
+pre,
+pre code {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+}
+
+.theme-code-block {
+  border: 1px solid #334155;
+  border-radius: 0.5rem;
+}
+
+/* Inline code - Also always dark mode style */
+code {
+  background-color: rgba(30, 41, 59, 0.15);
+  color: #1e293b;
+}
+
+/* Force inline code to stay dark even in light mode */
+:root code {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+}
+
+[data-theme='dark'] code {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+}
+
+/* Tables */
+.theme-doc-markdown table {
+  border-color: var(--ifm-border-color);
+}
+
+.theme-doc-markdown table tr:nth-child(2n) {
+  background-color: var(--ifm-background-surface-color);
+}
+
+.theme-doc-markdown table th,
+.theme-doc-markdown table td {
+  border-color: var(--ifm-border-color);
+}
+
+/* Blockquotes */
+.theme-doc-markdown blockquote {
+  border-left-color: var(--ifm-color-primary);
+  background-color: rgba(34, 197, 94, 0.05);
+}
+
+/* Admonitions */
+.alert--info {
+  --ifm-alert-background-color: rgba(59, 130, 246, 0.1);
+  --ifm-alert-border-color: #3b82f6;
+}
+
+.alert--success {
+  --ifm-alert-background-color: rgba(34, 197, 94, 0.1);
+  --ifm-alert-border-color: #22c55e;
+}
+
+.alert--warning {
+  --ifm-alert-background-color: rgba(245, 158, 11, 0.1);
+  --ifm-alert-border-color: #f59e0b;
+}
+
+.alert--danger {
+  --ifm-alert-background-color: rgba(239, 68, 68, 0.1);
+  --ifm-alert-border-color: #ef4444;
+}
+
+/* Search */
+.search-query-input {
+  background-color: var(--ifm-background-surface-color);
+  border-color: var(--ifm-border-color);
+  color: var(--ifm-font-color-base);
+}
+
+.search-query-input:focus {
+  border-color: var(--ifm-color-primary);
+}
+
+/* Pagination */
+.pagination-nav__link {
+  border-color: var(--ifm-border-color);
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--ifm-color-primary);
+}
+
+/* Tags */
+.tag {
+  background-color: var(--ifm-background-surface-color);
+  border-color: var(--ifm-border-color);
+}
+
+.tag:hover {
+  border-color: var(--ifm-color-primary);
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(34, 197, 94, 0.3);
+  color: var(--ifm-font-color-base);
+}

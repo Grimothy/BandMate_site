@@ -1,0 +1,9 @@
+{
+  "label": "User Guide",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "slug": "/category/user-guide",
+    "description": "Learn how to use BandMate to organize your music, collaborate with bandmates, and manage files."
+  }
+}
