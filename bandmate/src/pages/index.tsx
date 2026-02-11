@@ -45,9 +45,9 @@ function HomepageHero(): ReactNode {
               View on GitHub
             </Link>
             <Link
-              className={clsx('button button--lg', styles.heroAccentBtn)}
+              className={clsx('button button--lg', styles.heroSecondary)}
               to="/docs/roadmap">
-              🚦 Project Roadmap
+              Project Roadmap
             </Link>
             <Link
               className={clsx('button button--lg', styles.heroSupport)}
