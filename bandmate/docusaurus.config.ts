@@ -85,6 +85,11 @@ const config: Config = {
           label: 'GitHub',
           position: 'right',
         },
+        {
+          href: 'https://ko-fi.com/mrgrimothy',
+          label: '☕ Support',
+          position: 'right',
+        },
       ],
     },
     footer: {
@@ -138,6 +143,19 @@ const config: Config = {
             {
               label: 'Releases',
               href: 'https://github.com/Grimothy/BandMate/releases',
+            },
+          ],
+        },
+        {
+          title: 'Support',
+          items: [
+            {
+              label: '☕ Buy Me a Coffee',
+              href: 'https://ko-fi.com/mrgrimothy',
+            },
+            {
+              label: 'Contributing',
+              to: '/docs/contributing',
             },
           ],
         },

@@ -44,6 +44,11 @@ function HomepageHero(): ReactNode {
               href="https://github.com/Grimothy/BandMate">
               View on GitHub
             </Link>
+            <Link
+              className={clsx('button button--lg', styles.heroSupport)}
+              href="https://ko-fi.com/mrgrimothy">
+              ☕ Support This Project
+            </Link>
           </div>
           <div className={styles.heroVersion}>
             <span className={styles.versionBadge}>{versionTag}</span>

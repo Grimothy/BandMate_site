@@ -62,6 +62,7 @@
   display: flex;
   gap: 1rem;
   margin-top: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .heroPrimary {
@@ -90,6 +91,22 @@
   border-color: #22c55e !important;
   color: #22c55e !important;
   background-color: transparent !important;
+}
+
+.heroSupport {
+  background: linear-gradient(135deg, #ff5e62 0%, #ff9966 100%) !important;
+  color: #ffffff !important;
+  border: 2px solid transparent !important;
+  font-weight: 600;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(255, 94, 98, 0.3);
+}
+
+.heroSupport:hover {
+  background: linear-gradient(135deg, #ff4449 0%, #ff8855 100%) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 94, 98, 0.4);
 }
 
 .heroVersion {
