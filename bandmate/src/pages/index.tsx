@@ -33,7 +33,7 @@ function HomepageHero(): ReactNode {
             and stems, leave timestamped feedback, and collaborate in real-time &mdash; all
             from a single dashboard.
           </p>
-          <div className={styles.heroButtons}>
+           <div className={styles.heroButtons}>
             <Link
               className={clsx('button button--lg', styles.heroPrimary)}
               to="/docs/intro">
@@ -43,6 +43,11 @@ function HomepageHero(): ReactNode {
               className={clsx('button button--lg', styles.heroSecondary)}
               href="https://github.com/Grimothy/BandMate">
               View on GitHub
+            </Link>
+            <Link
+              className={clsx('button button--lg', styles.heroAccentBtn)}
+              to="/docs/roadmap">
+              🚦 Project Roadmap
             </Link>
             <Link
               className={clsx('button button--lg', styles.heroSupport)}

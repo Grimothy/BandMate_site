@@ -43,6 +43,7 @@ const sidebars: SidebarsConfig = {
     //     'api/realtime',
     //   ],
     // },
+    'roadmap',
     'contributing',
     'changelog',
   ],

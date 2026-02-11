@@ -93,6 +93,23 @@
   background-color: transparent !important;
 }
 
+.heroAccentBtn {
+  background: linear-gradient(135deg, #dbeafe 0%, #22c55e 100%) !important;
+  color: #0f172a !important;
+  border: 2px solid #22c55e !important;
+  font-weight: 600;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.12);
+}
+
+.heroAccentBtn:hover {
+  background: linear-gradient(135deg, #a7f3d0 0%, #16a34a 100%) !important;
+  color: #0f172a !important;
+  border-color: #16a34a !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(34, 197, 94, 0.18);
+}
+
 .heroSupport {
   background: linear-gradient(135deg, #ff5e62 0%, #ff9966 100%) !important;
   color: #ffffff !important;
