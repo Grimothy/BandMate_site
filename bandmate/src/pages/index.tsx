@@ -131,42 +131,42 @@ function HomepageHero(): ReactNode {
 function Screenshots(): ReactNode {
   const screenshots = [
     {
-      img: useBaseUrl('/img/screenshots/bandmate_dashboard_view.png'),
+      img: '/img/screenshots/bandmate-dashboard.png',
       title: 'Dashboard Overview',
       description: 'See all your projects, recent activity, and notifications at a glance. Stay updated with real-time collaboration updates.'
     },
     {
-      img: useBaseUrl('/img/screenshots/bandmate_projects_dashboard_view.png'),
+      img: '/img/screenshots/bandmate-projects.png',
       title: 'Projects Dashboard',
       description: 'Organize all your band\'s projects in one place. Create, manage, and navigate between multiple projects effortlessly.'
     },
     {
-      img: useBaseUrl('/img/screenshots/bandmate_project_view.png'),
+      img: '/img/screenshots/bandmate-vibes.png',
       title: 'Project Vibes',
       description: 'Break down your projects into "vibes" - collections of related tracks. Perfect for organizing different versions, moods, or song ideas.'
     },
     {
-      img: useBaseUrl('/img/screenshots/bandmate_cut_view.png'),
+      img: '/img/screenshots/bandmate-cut.png',
       title: 'Audio Playback & Comments',
       description: 'Listen to tracks with visual waveforms. Leave timestamped comments that link directly to specific moments in the song.'
     },
     {
-      img: useBaseUrl('/img/screenshots/bandmate_file_explorer_view.png'),
+      img: '/img/screenshots/bandmate-explorer.png',
       title: 'File Explorer',
       description: 'Browse and manage all your audio files and stems. Upload, organize, and share files with your bandmates securely.'
     },
     {
-      img: useBaseUrl('/img/screenshots/bandmate_user_mgmt_view.png'),
+      img: '/img/screenshots/bandmate-users.png',
       title: 'User Management',
       description: 'Invite bandmates, manage permissions, and control who has access to your projects. Simple and secure collaboration.'
     },
     {
-      img: useBaseUrl('/img/screenshots/bandmate_mobile_dashboard_view.png'),
+      img: '/img/screenshots/bandmate-mobile.png',
       title: 'Mobile Ready',
       description: 'Full mobile support means you can review tracks and leave feedback from anywhere, on any device.'
     },
     {
-      img: useBaseUrl('/img/screenshots/Easy-Mobile-and-desktop-actions.png'),
+      img: '/img/screenshots/bandmate-actions.png',
       title: 'Touch-Friendly Actions',
       description: 'Context menus optimized for both mobile and desktop. Quick actions are always just a tap or click away.'
     }
@@ -264,7 +264,7 @@ function Screenshots(): ReactNode {
                 }}>
                 <div className={styles.screenshotImageWrapper}>
                   <img 
-                    src={screenshot.img}
+                    src={useBaseUrl(screenshot.img)}
                     alt={screenshot.title}
                     className={styles.screenshotImage}
                   />
@@ -302,7 +302,7 @@ function Screenshots(): ReactNode {
 
             <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
               <img 
-                src={screenshots[lightboxIndex].img}
+                src={useBaseUrl(screenshots[lightboxIndex].img)}
                 alt={screenshots[lightboxIndex].title}
                 className={styles.lightboxImage}
               />
@@ -358,7 +358,7 @@ function Screenshots(): ReactNode {
                 }
               }}>
               <img 
-                src={screenshots[currentIndex].img}
+                src={useBaseUrl(screenshots[currentIndex].img)}
                 alt={screenshots[currentIndex].title}
                 className={styles.carouselImage}
               />
@@ -423,7 +423,7 @@ function Screenshots(): ReactNode {
 
           <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
             <img 
-              src={screenshots[lightboxIndex].img}
+              src={useBaseUrl(screenshots[lightboxIndex].img)}
               alt={screenshots[lightboxIndex].title}
               className={styles.lightboxImage}
             />
