@@ -5,6 +5,9 @@ on:
     branches:
       - main
   workflow_dispatch:
+  # Triggered by BandMate repo on new releases
+  repository_dispatch:
+    types: [bandmate-released]
 
 permissions:
   contents: read
