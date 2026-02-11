@@ -329,6 +329,12 @@
   color: #64748b;
 }
 
+.terminalCta {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
 /* ===== Section Shared Styles ===== */
 .sectionTitle {
   text-align: center;

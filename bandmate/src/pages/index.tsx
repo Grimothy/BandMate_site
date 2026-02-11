@@ -35,11 +35,6 @@ function HomepageHero(): ReactNode {
           </p>
            <div className={styles.heroButtons}>
             <Link
-              className={clsx('button button--lg', styles.heroPrimary)}
-              to="/docs/intro">
-              Get Started
-            </Link>
-            <Link
               className={clsx('button button--lg', styles.heroSecondary)}
               href="https://github.com/Grimothy/BandMate">
               View on GitHub
@@ -82,6 +77,13 @@ function HomepageHero(): ReactNode {
                 <span className={styles.terminalMuted}>Open http://localhost:3000</span>
               </code>
             </div>
+          </div>
+          <div className={styles.terminalCta}>
+            <Link
+              className={clsx('button button--lg', styles.heroPrimary)}
+              to="/docs/intro">
+              Get Started
+            </Link>
           </div>
         </div>
       </div>
