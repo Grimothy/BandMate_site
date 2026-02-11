@@ -16,25 +16,30 @@ interface GitHubRelease {
 export default function githubReleasesPlugin(): Plugin {
   return {
     name: 'github-releases',
-    
+
     async loadContent() {
       try {
         // Fetch releases from GitHub API
+        console.log('[github-releases] Fetching releases from GitHub API...');
         const response = await fetch('https://api.github.com/repos/Grimothy/BandMate/releases', {
           headers: {
             'Accept': 'application/vnd.github.v3+json',
             'User-Agent': 'Docusaurus-Plugin'
           }
         });
-        
+
+        console.log(`[github-releases] API response status: ${response.status}`);
+
         if (!response.ok) {
-          console.warn('Could not fetch GitHub releases, using fallback');
+          console.warn(`[github-releases] Could not fetch GitHub releases (status ${response.status}), using fallback`);
           return getFallbackData();
         }
-        
+
         const releases: GitHubRelease[] = await response.json();
-        
+        console.log(`[github-releases] Found ${releases.length} releases`);
+
         if (releases.length === 0) {
+          console.warn('[github-releases] No releases found, using fallback');
           return getFallbackData();
         }
         
@@ -83,20 +88,22 @@ export default function githubReleasesPlugin(): Plugin {
     
     async contentLoaded({content, actions}) {
       const {setGlobalData} = actions;
+      console.log(`[github-releases] Setting global data with version: ${content.latest.tagName}`);
       setGlobalData({releases: content});
     },
   };
 }
 
 function getFallbackData() {
+  console.log('[github-releases] Using fallback data for v1.4.1');
   return {
     latest: {
-      version: '1.4.0',
-      tagName: 'v1.4.0',
-      name: 'v1.4.0',
+      version: '1.4.1',
+      tagName: 'v1.4.1',
+      name: 'BandMate v1.4.1',
       date: 'Feb 2026',
-      fullDate: '2026-02-10',
-      url: 'https://github.com/Grimothy/BandMate/releases/tag/v1.4.0',
+      fullDate: '2026-02-11',
+      url: 'https://github.com/Grimothy/BandMate/releases/tag/v1.4.1',
       notes: ''
     },
     allReleases: []
