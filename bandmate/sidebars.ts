@@ -22,27 +22,27 @@ const sidebars: SidebarsConfig = {
         'user-guide/file-management',
       ],
     },
-    'architecture',
+    // 'architecture',      // hidden
     'deployment',
-    {
-      type: 'category',
-      label: 'API Reference',
-      collapsed: true,
-      link: {
-        type: 'generated-index',
-        title: 'API Reference',
-        description: 'Complete API documentation for BandMate, including authentication, projects, files, comments, and real-time events.',
-        slug: '/category/api-reference',
-      },
-      items: [
-        'api/overview',
-        'api/authentication',
-        'api/projects',
-        'api/files',
-        'api/comments',
-        'api/realtime',
-      ],
-    },
+    // {
+    //   type: 'category',  // API Reference hidden
+    //   label: 'API Reference',
+    //   collapsed: true,
+    //   link: {
+    //     type: 'generated-index',
+    //     title: 'API Reference',
+    //     description: 'Complete API documentation for BandMate, including authentication, projects, files, comments, and real-time events.',
+    //     slug: '/category/api-reference',
+    //   },
+    //   items: [
+    //     'api/overview',
+    //     'api/authentication',
+    //     'api/projects',
+    //     'api/files',
+    //     'api/comments',
+    //     'api/realtime',
+    //   ],
+    // },
     'contributing',
     'changelog',
   ],
