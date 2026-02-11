@@ -11,8 +11,8 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://bandmate.me',
-  baseUrl: '/',
+  url: 'https://grimothy.github.io',
+  baseUrl: '/BandMate_site/',
 
   organizationName: 'Grimothy',
   projectName: 'BandMate_site',
