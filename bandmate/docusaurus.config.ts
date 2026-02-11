@@ -80,11 +80,16 @@ const config: Config = {
           label: 'Changelog',
           position: 'left',
         },
-        {
-          href: 'https://github.com/Grimothy/BandMate',
-          label: 'GitHub',
-          position: 'right',
-        },
+         {
+           to: '/docs/roadmap',
+           label: 'Roadmap',
+           position: 'right',
+         },
+         {
+           href: 'https://github.com/Grimothy/BandMate',
+           label: 'GitHub',
+           position: 'right',
+         },
         {
           href: 'https://ko-fi.com/mrgrimothy',
           label: '☕ Support',
