@@ -27,6 +27,23 @@
   gap: 1.5rem;
   max-width: 1100px;
   margin: 0 auto;
+  position: relative;
+}
+
+.featureGrid::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  height: calc(100% + 140px);
+  border-radius: 2rem;
+  background: radial-gradient(ellipse at center, rgba(34, 197, 94, 0.6) 0%, rgba(34, 197, 94, 0.35) 40%, rgba(34, 220, 110, 0.12) 65%, transparent 85%);
+  filter: blur(55px);
+  animation: shiftGlow 5s ease-in-out infinite;
+  z-index: 0;
+  pointer-events: none;
 }
 
 .featureCard {
@@ -35,6 +52,23 @@
   border-radius: 0.75rem;
   padding: 2rem 1.5rem;
   transition: border-color 0.2s, transform 0.2s;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes shiftGlow {
+  0%, 100% {
+    border-radius: 2rem 3rem 2rem 3rem;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+  33% {
+    border-radius: 3rem 2rem 3rem 2rem;
+    transform: translate(-50%, -50%) scale(1.05) rotate(1deg);
+  }
+  66% {
+    border-radius: 2.5rem 2rem 3rem 2.5rem;
+    transform: translate(-50%, -50%) scale(0.97) rotate(-1deg);
+  }
 }
 
 .featureCard:hover {

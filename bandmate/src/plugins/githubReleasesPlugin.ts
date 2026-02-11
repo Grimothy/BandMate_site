@@ -13,6 +13,26 @@ interface GitHubRelease {
   html_url: string;
 }
 
+interface ReleaseData {
+  latest: {
+    version: string;
+    tagName: string;
+    name: string;
+    date: string;
+    fullDate: string;
+    url: string;
+    notes: string;
+  };
+  allReleases: Array<{
+    version: string;
+    tagName: string;
+    name: string;
+    date: string;
+    url: string;
+    notes: string;
+  }>;
+}
+
 export default function githubReleasesPlugin(): Plugin {
   return {
     name: 'github-releases',
@@ -86,7 +106,7 @@ export default function githubReleasesPlugin(): Plugin {
       }
     },
     
-    async contentLoaded({content, actions}) {
+    async contentLoaded({content, actions}: {content: ReleaseData; actions: any}) {
       const {setGlobalData} = actions;
       console.log(`[github-releases] Setting global data with version: ${content.latest.tagName}`);
       setGlobalData({releases: content});
