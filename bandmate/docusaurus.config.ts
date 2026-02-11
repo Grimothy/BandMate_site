@@ -46,7 +46,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: 'img/bandmate-social-card.jpg',
+    image: 'img/logo.png',
     colorMode: {
       defaultMode: 'dark',
       disableSwitch: false,
