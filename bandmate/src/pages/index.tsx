@@ -497,6 +497,54 @@ function QuickStart(): ReactNode {
   );
 }
 
+function ComingSoon(): ReactNode {
+  return (
+    <section className={styles.comingSoon}>
+      <div className="container">
+        <Heading as="h2" className={styles.sectionTitle}>
+          Not an IT Expert?
+        </Heading>
+        <p className={styles.sectionSubtitle}>
+          No problem! Let us host BandMate for you. Coming soon: managed hosting
+          so you can focus on making music, not managing servers.
+        </p>
+        <div className={styles.comingSoonContent}>
+          <div className={styles.comingSoonFeature}>
+            <span className={styles.comingSoonIcon}>☁️</span>
+            <h3>Fully Managed</h3>
+            <p>
+              We handle updates, backups, and maintenance. Your data stays
+              secure and accessible.
+            </p>
+          </div>
+          <div className={styles.comingSoonFeature}>
+            <span className={styles.comingSoonIcon}>⚡</span>
+            <h3>Instant Setup</h3>
+            <p>
+              Get your band collaborating in minutes, not hours. No Docker, no
+              command line required.
+            </p>
+          </div>
+          <div className={styles.comingSoonFeature}>
+            <span className={styles.comingSoonIcon}>🔒</span>
+            <h3>Your Data, Your Control</h3>
+            <p>
+              Export anytime. Your music and projects always belong to you,
+              even with managed hosting.
+            </p>
+          </div>
+        </div>
+        <div className={styles.comingSoonCta}>
+          <span
+            className={clsx('button button--lg', styles.comingSoonButton, styles.comingSoonDisabled)}>
+            Not yet available
+          </span>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home(): ReactNode {
   return (
     <Layout
@@ -508,6 +556,7 @@ export default function Home(): ReactNode {
         <Screenshots />
         <Contributors />
         <QuickStart />
+        <ComingSoon />
       </main>
     </Layout>
   );

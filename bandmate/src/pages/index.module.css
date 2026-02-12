@@ -851,6 +851,109 @@
   font-size: 0.8rem;
 }
 
+/* ===== Coming Soon Section ===== */
+.comingSoon {
+  background: linear-gradient(160deg, #0f172a 0%, #1a2744 40%, #0f172a 100%);
+  padding: 5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.comingSoon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, rgba(34, 197, 94, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.comingSoonContent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 3rem auto;
+  position: relative;
+  z-index: 1;
+}
+
+.comingSoonFeature {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid #334155;
+  border-radius: 0.75rem;
+  transition: all 0.3s;
+}
+
+.comingSoonFeature:hover {
+  border-color: #22c55e;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(34, 197, 94, 0.1);
+}
+
+.comingSoonIcon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.comingSoonFeature h3 {
+  color: #f8fafc;
+  margin: 0 0 0.75rem;
+  font-size: 1.2rem;
+}
+
+.comingSoonFeature p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.comingSoonCta {
+  text-align: center;
+  margin-top: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.comingSoonButton {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%) !important;
+  color: #ffffff !important;
+  border: 2px solid #22c55e !important;
+  font-weight: 600;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25);
+}
+
+.comingSoonButton:hover {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%) !important;
+  border-color: #16a34a !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(34, 197, 94, 0.35);
+}
+
+.comingSoonDisabled {
+  background: #334155 !important;
+  border-color: #475569 !important;
+  color: #94a3b8 !important;
+  cursor: not-allowed;
+  box-shadow: none !important;
+}
+
+.comingSoonDisabled:hover {
+  background: #334155 !important;
+  border-color: #475569 !important;
+  color: #94a3b8 !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
 /* ===== Responsive ===== */
 @media screen and (max-width: 996px) {
   .heroInner {
@@ -908,6 +1011,11 @@
   }
 
   .quickStartGrid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+
+  .comingSoonContent {
     grid-template-columns: 1fr;
     max-width: 400px;
   }
