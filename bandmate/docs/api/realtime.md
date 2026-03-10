@@ -45,6 +45,10 @@ These events are emitted by the server and received by connected clients:
 | `activity:new` | Activity object | New activity feed item |
 | `notification:new` | Notification object | New notification for the user |
 | `member:joined` | Member object | A new member joined the project |
+| `chat:message` | Message object | A new direct message was received |
+| `chat:typing` | `{ conversationId, userId, isTyping }` | The other participant started or stopped typing |
+| `chat:read` | `{ conversationId, readBy }` | The other participant read your messages |
+| `chat:presence` | `{ userId, isOnline }` | A bandmate came online or went offline |
 
 ### Client to Server
 
@@ -52,6 +56,7 @@ These events are emitted by the server and received by connected clients:
 |-------|---------|-------------|
 | `join:project` | `{ projectId }` | Subscribe to events for a specific project |
 | `leave:project` | `{ projectId }` | Unsubscribe from project events |
+| `chat:typing` | `{ conversationId, isTyping }` | Notify the other participant that you are typing |
 
 ## Rooms
 

@@ -19,6 +19,7 @@ const sidebars: SidebarsConfig = {
         'user-guide/projects-vibes-cuts',
         'user-guide/audio-player',
         'user-guide/collaboration',
+        'user-guide/messaging',
         'user-guide/file-management',
       ],
     },

@@ -62,7 +62,7 @@ When `APP_URL` uses HTTPS, BandMate automatically enables the `Secure` flag on a
 
 ## Email Notifications (Optional)
 
-Enable email notifications for invitations and activity updates:
+Enable email notifications for invitations, activity digests, and missed chat messages:
 
 | Variable | Default | Description |
 |----------|---------|-------------|
@@ -73,6 +73,17 @@ Enable email notifications for invitations and activity updates:
 | `EMAIL_USER` | -- | SMTP username |
 | `EMAIL_PASS` | -- | SMTP password |
 | `EMAIL_FROM` | `BandMate <noreply@bandmate.local>` | Sender address shown in emails |
+
+### Chat Missed Message Emails
+
+When a user receives a chat message while offline, BandMate sends them an email summary. These variables tune that behaviour:
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `CHAT_NOTIFICATION_GRACE_MS` | `600000` (10 min) | How long to wait after a message is sent before emailing the recipient. Prevents emails for messages that get read quickly. |
+| `CHAT_NOTIFICATION_POLL_MS` | `120000` (2 min) | How often the server checks for unread messages to notify about. |
+
+Both variables are optional. The defaults are suitable for production. Chat notification emails are only sent when `EMAIL_ENABLED=true`.
 
 ### Example: Gmail SMTP
 
@@ -149,6 +160,10 @@ EMAIL_ENABLED=false
 # EMAIL_USER=
 # EMAIL_PASS=
 # EMAIL_FROM=BandMate <noreply@bandmate.local>
+
+# Chat missed message email timing (optional, requires EMAIL_ENABLED=true)
+# CHAT_NOTIFICATION_GRACE_MS=600000   # 10 minutes
+# CHAT_NOTIFICATION_POLL_MS=120000    # 2 minutes
 
 # Google OAuth (optional)
 GOOGLE_OAUTH_ENABLED=false

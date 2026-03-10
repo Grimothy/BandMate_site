@@ -94,6 +94,14 @@ Notifications appear as:
 2. **Notification center** -- A persistent list you can review later
 3. **Email notifications** -- If email is configured in your deployment
 
+## Direct Messaging
+
+BandMate includes direct messaging so you can talk to your bandmates without leaving the app. See the **[Messaging](/docs/user-guide/messaging)** guide for full details.
+
+- The **BandMates** section in the sidebar lists everyone you share a project with
+- A green dot indicates who is currently online
+- Unread message counts appear on each person's name and in the section header
+
 ## Authentication Options
 
 ### Standard Login

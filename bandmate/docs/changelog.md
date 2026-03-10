@@ -7,6 +7,138 @@ title: Changelog
 
 Complete release history for BandMate. See the [GitHub Releases](https://github.com/Grimothy/BandMate/releases) page for full details and downloadable assets.
 
+## v1.5.0 -- 03/10/2026 {#v150}
+
+**Full Changelog**: https://github.com/Grimothy/BandMate/compare/v1.4.7...v1.5.0
+
+## v1.4.7 -- 03/09/2026 {#v147}
+
+# Global Search Feature - Session Summary
+
+## Goal
+
+Add a global search feature to the BandMate application (a collaborative music production platform). The search allows users to search across all projects they are members of, with results scoped by access control.
+
+## Requirements
+
+- Search accessible via a command palette UI (⌘K / Ctrl+K keyboard shortcut)
+- Searchable entities: Projects (name), Vibes (name, theme, notes), Cuts (name, lyrics), Files (name, originalName), Comments (content)
+- Results grouped by type with priority ordering: Cuts → Vibes → Projects → Files → Comments
+- Results scoped to projects the user has access to (ADMINs see all, MEMBERs only see their projects)
+- Match highlighting, keyboard navigation, breadcrumb paths, and debounced search (300ms)
+
+## Discoveries
+
+| Discovery | Details |
+|-----------|---------|
+| **Routing pattern** | The app uses UUIDs in routes (`/projects/:id`, `/cuts/:id`), NOT slugs. This was a bug fix - initial implementation used slug-based paths which didn't match the actual routes. |
+| **Activity system** | Comment replies ARE already tracked in the digest system via the `comment_added` activity type with `isReply: true` in metadata. The email template was updated to distinguish replies from top-level comments. |
+| **Tech stack** | React + Vite + TypeScript frontend, Express + Prisma + SQLite backend, shadcn/ui components, Radix UI primitives |
+| **Code standards** | Located in `.opencode/context/core/standards/code-quality.md` and `ui-components.md` |
+
+## Completed Tasks
+
+- [x] Created search types in `frontend/src/types/index.ts`
+- [x] Created backend search service (`backend/src/services/search.ts`)
+- [x] Created backend search route (`backend/src/routes/search.ts`)
+- [x] Registered search route in `backend/src/routes/index.ts`
+- [x] Created frontend search API module (`frontend/src/api/search.ts`)
+- [x] Created SearchModal component (`frontend/src/components/search/SearchModal.tsx`)
+- [x] Created useSearch hook (`frontend/src/hooks/useSearch.ts`)
+- [x] Integrated search trigger in Header component
+- [x] Fixed resourceLink URLs to use IDs instead of slugs
+- [x] Improved digest emails to distinguish replies from comments
+- [x] Committed and pushed to main (commit `005574d`)
+- [x] Created release notes markdown for v1.5.0
+
+## Files Created
+
+| File | Purpose |
+|------|---------|
+| `backend/src/services/search.ts` | Search service with Prisma queries, access control, grouped results |
+| `backend/src/routes/search.ts` | GET /api/search endpoint |
+| `frontend/src/api/search.ts` | Frontend API client for search |
+| `frontend/src/components/search/SearchModal.tsx` | Command palette UI with keyboard navigation |
+| `frontend/src/hooks/useSearch.ts` | Hook for ⌘K/Ctrl+K keyboard shortcut |
+
+## Files Modified
+
+| File | Changes |
+|------|---------|
+| `backend/src/routes/index.ts` | Added search route registration |
+| `backend/src/services/email.ts` | Updated to distinguish replies in digest emails |
+| `frontend/src/types/index.ts` | Added SearchResult types |
+| `frontend/src/hooks/index.ts` | Exported useSearch hook |
+| `frontend/src/components/layout/Header.tsx` | Added search button and SearchModal integration |
+
+## Reference Files
+
+- `backend/prisma/schema.prisma` - Data models
+- `frontend/src/App.tsx` - Route definitions (uses `/projects/:id`, `/cuts/:id` patterns)
+- `.opencode/context/core/standards/code-quality.md` - Code standards
+- `.opencode/context/core/standards/ui-components.md` - UI component patterns
+
+## Feature Summary
+
+### Backend
+- **Search Service**: Full-text search across Projects, Vibes, Cuts, Files, and Comments using Prisma `contains` queries
+- **Access Control**: Results automatically filtered based on user's project membership (ADMINs see all, MEMBERs see only their projects)
+- **API Endpoint**: `GET /api/search?q=<query>` returns grouped, prioritized results
+
+### Frontend
+- **Command Palette**: Modal UI triggered by ⌘K (Mac) or Ctrl+K (Windows/Linux)
+- **Keyboard Navigation**: Arrow keys to navigate, Enter to select, Escape to close
+- **Visual Features**: Match highlighting, result type icons, breadcrumb paths showing context
+- **Performance**: 300ms debounced search to reduce API calls
+
+## Status
+
+✅ **Complete** - Feature shipped in commit `005574d`
+
+## v1.4.6 -- 03/06/2026 {#v146}
+
+**Full Changelog**: https://github.com/Grimothy/BandMate/compare/v1.4.5...v1.4.6
+
+## v1.4.5 -- 03/05/2026 {#v145}
+
+**Full Changelog**: https://github.com/Grimothy/BandMate/compare/v20260305.143932...v1.4.5
+
+## v1.4.4 -- 02/16/2026 {#v144}
+
+**v1.4.4 - Audio Player Improvements**
+
+## v1.4.4
+
+### Features
+- None
+
+### Bug Fixes
+- Improved audio seeking on mobile devices
+- Enhanced shared audio player UI/UX
+- Fixed WaveSurfer resource cleanup and AudioContext management
+- Addressed Sonar warnings and code quality issues in audio player
+- Fixed audio continuing to play when navigating away from FileExplorer
+
+### Other
+- Better audio playback handling and user experience
+
+## v1.4.3 -- 02/16/2026 {#v143}
+
+**v1.4.3 - Dashboard Redesign and Editable Timestamps**
+
+## v1.4.3
+
+### Features
+- Redesigned dashboard layout with compact stat badges and full-width activity feed
+- Added editable timestamp input for audio seeking in cut details
+- Increased dashboard activity items display from 5 to 8
+
+### Bug Fixes
+- None
+
+### Other
+- Improved user experience for timestamp entry and dashboard navigation
+
 ## v1.4.2 -- 02/11/2026 {#v142}
 
 **BandMate v1.4.2**

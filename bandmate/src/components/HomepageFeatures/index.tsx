@@ -105,6 +105,38 @@ const FeatureList: FeatureItem[] = [
       </>
     ),
   },
+  {
+    title: 'Direct Messaging',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+        <line x1="9" y1="10" x2="9" y2="10" strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="12" y1="10" x2="12" y2="10" strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="15" y1="10" x2="15" y2="10" strokeWidth="2.5" strokeLinecap="round" />
+      </svg>
+    ),
+    description: (
+      <>
+        Chat with your bandmates directly inside BandMate. See who's online, get
+        typing indicators and read receipts, and receive email summaries of missed messages.
+      </>
+    ),
+  },
+  {
+    title: 'Approval Workflows',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+        <polyline points="22 4 12 14.01 9 11.01" />
+      </svg>
+    ),
+    description: (
+      <>
+        Request sign-off on specific comments from bandmates or clients. Track
+        pending, approved, and rejected approvals without losing the conversation context.
+      </>
+    ),
+  },
 ];
 
 function Feature({title, icon, description}: FeatureItem): ReactNode {

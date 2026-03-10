@@ -47,9 +47,12 @@ Authenticate with email and password.
 ```json
 {
   "email": "user@example.com",
-  "password": "securepassword"
+  "password": "securepassword",
+  "rememberMe": false
 }
 ```
+
+`rememberMe` is optional (defaults to `false`). When `true`, the refresh token cookie persists for 30 days. When `false`, it is a session cookie that expires when the browser closes.
 
 **Response:** `200 OK`
 
@@ -114,8 +117,9 @@ Handles the OAuth callback from Google. On success, creates or links the user ac
 
 ## Token Behavior
 
-- **Access tokens** expire after a short period (typically 15 minutes)
-- **Refresh tokens** are longer-lived and stored in the database
+- **Access tokens** expire after 15 minutes
+- **Refresh tokens** are longer-lived: 1 day without "Remember me", 30 days with it
 - **Cookie-based auth** is used for WebSocket connections, set automatically on login
+- Token refresh preserves the original session duration
 - Tokens are invalidated on logout
 - The Axios interceptor on the frontend automatically refreshes expired access tokens
