@@ -1,10 +1,9 @@
 import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
+  // Public-facing user documentation
   docsSidebar: [
     'intro',
-    'installation',
-    'configuration',
     {
       type: 'category',
       label: 'User Guide',
@@ -23,30 +22,38 @@ const sidebars: SidebarsConfig = {
         'user-guide/file-management',
       ],
     },
-    // 'architecture',      // hidden
-    'deployment',
-    // {
-    //   type: 'category',  // API Reference hidden
-    //   label: 'API Reference',
-    //   collapsed: true,
-    //   link: {
-    //     type: 'generated-index',
-    //     title: 'API Reference',
-    //     description: 'Complete API documentation for BandMate, including authentication, projects, files, comments, and real-time events.',
-    //     slug: '/category/api-reference',
-    //   },
-    //   items: [
-    //     'api/overview',
-    //     'api/authentication',
-    //     'api/projects',
-    //     'api/files',
-    //     'api/comments',
-    //     'api/realtime',
-    //   ],
-    // },
     'roadmap',
-    'contributing',
     'changelog',
+  ],
+
+  // Internal technical documentation — not linked from the site navigation.
+  // Access directly via URL (e.g. /docs/installation) or the sidebar when
+  // referenced explicitly in a page's front matter with `sidebar: internalSidebar`.
+  internalSidebar: [
+    'installation',
+    'configuration',
+    'deployment',
+    'architecture',
+    'contributing',
+    {
+      type: 'category',
+      label: 'API Reference',
+      collapsed: true,
+      link: {
+        type: 'generated-index',
+        title: 'API Reference',
+        description: 'Complete API documentation for BandMate, including authentication, projects, files, comments, and real-time events.',
+        slug: '/category/api-reference',
+      },
+      items: [
+        'api/overview',
+        'api/authentication',
+        'api/projects',
+        'api/files',
+        'api/comments',
+        'api/realtime',
+      ],
+    },
   ],
 };
 
