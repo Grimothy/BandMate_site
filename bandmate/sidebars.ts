@@ -22,6 +22,7 @@ const sidebars: SidebarsConfig = {
         'user-guide/file-management',
       ],
     },
+    'selfhosted-setup',
     'roadmap',
     'changelog',
   ],
