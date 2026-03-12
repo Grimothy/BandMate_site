@@ -66,16 +66,6 @@ const config: Config = {
           label: 'Docs',
         },
         {
-          to: '/docs/installation',
-          label: 'Installation',
-          position: 'left',
-        },
-        {
-          to: '/docs/configuration',
-          label: 'Configuration',
-          position: 'left',
-        },
-        {
           to: '/docs/changelog',
           label: 'Changelog',
           position: 'left',
@@ -107,14 +97,6 @@ const config: Config = {
               label: 'Getting Started',
               to: '/docs/intro',
             },
-            {
-              label: 'Installation',
-              to: '/docs/installation',
-            },
-            {
-              label: 'Configuration',
-              to: '/docs/configuration',
-            },
           ],
         },
         {
@@ -123,14 +105,6 @@ const config: Config = {
             {
               label: 'User Guide',
               to: '/docs/category/user-guide',
-            },
-            {
-              label: 'Deployment',
-              to: '/docs/deployment',
-            },
-            {
-              label: 'Architecture',
-              to: '/docs/architecture',
             },
           ],
         },
@@ -157,10 +131,6 @@ const config: Config = {
             {
               label: '☕ Buy Me a Coffee',
               href: 'https://ko-fi.com/mrgrimothy',
-            },
-            {
-              label: 'Contributing',
-              to: '/docs/contributing',
             },
           ],
         },

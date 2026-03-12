@@ -33,30 +33,18 @@ This hierarchy mirrors how bands actually think about their music, making it nat
 
 ## Key Features
 
-- **Real-time collaboration** via WebSockets -- see changes as they happen
-- **Audio waveform visualization** with WaveSurfer.js
+- **Real-time collaboration** — see changes as they happen
+- **Audio waveform visualization** for easy navigation and playback
 - **Timestamped comments** pinned to exact moments in tracks
 - **File management** for audio (MP3, WAV, FLAC, etc.), stems (ZIP), and images
 - **User invitations** with role-based permissions (Admin, Member)
 - **Activity feed** with notifications and deep linking
-- **Media Session API** for lock screen playback controls
-- **Google OAuth** for optional single sign-on
-- **Self-hosted** with Docker -- your data stays on your server
-
-## Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Frontend | React, TypeScript, Vite, Tailwind CSS, Radix UI |
-| Backend | Node.js, Express, TypeScript, Prisma ORM |
-| Database | SQLite (default), PostgreSQL (optional) |
-| Real-time | Socket.io |
-| Auth | JWT + optional Google OAuth |
-| Audio | WaveSurfer.js |
-| Deployment | Docker, Docker Compose |
+- **Lock screen playback controls** on mobile devices
+- **Google sign-in** for optional single sign-on
+- **Self-hosted** — your data stays on your server
 
 ## Next Steps
 
-- **[Installation](/docs/installation)** -- Get BandMate running in under a minute
-- **[Configuration](/docs/configuration)** -- Customize environment variables
-- **[User Guide](/docs/category/user-guide)** -- Learn how to use BandMate
+- **[User Guide](/docs/category/user-guide)** — Learn how to use BandMate
+- **[Roadmap](/docs/roadmap)** — See what's coming next
+- **[Changelog](/docs/changelog)** — See what's changed
